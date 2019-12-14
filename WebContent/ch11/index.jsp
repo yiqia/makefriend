@@ -1,13 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-<h2>QWE</h2>
-
+<head><%@ include file="head.txt" %></head>
+<body background='image/back.jpg'>
+	<center>
+		<h1>
+			<font size=4 color=red>欢迎您来这里结交朋友</font>
+		</h1>
+	</center>
 </body>
 </html>
