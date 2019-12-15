@@ -131,7 +131,7 @@ public class HandleDatabase extends HttpServlet {
 				inform.setEmail(rs.getString(4));
 				inform.setMessage(rs.getString(5));
 				inform.setPic(rs.getString(6));
-				inform.setBackNews("æŸ¥è¯¢åˆ°çš„ä¼šå‘˜ä¿¡æ¯ï¼š");
+				inform.setBackNews("²éÑ¯µ½µÄ»áÔ±ĞÅÏ¢£º");
 			}
 			con.close();
 			RequestDispatcher dispatcher = request.getRequestDispatcher("showLookedMember.jsp");

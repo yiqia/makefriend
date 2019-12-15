@@ -50,18 +50,18 @@ public class HandlePassword extends HttpServlet{
 				String updateString="UPDATE member SET password='"+newPassword+"' where logname='"+logname+"'";
 				int m=sql.executeUpdate(updateString);
 				if(m==1) {
-					passwordBean.setBackNews("å¯†ç æ›´æ–°æˆåŠŸ");
+					passwordBean.setBackNews("ÃÜÂë¸üĞÂ³É¹¦");
 					passwordBean.setOldPassword(oldPassword);
 					passwordBean.setNewPassword(newPassword);
 				}
 				else
-					passwordBean.setBackNews("å¯†ç æ›´æ–°å¤±è´¥");
+					passwordBean.setBackNews("ÃÜÂë¸üĞÂÊ§°Ü");
 			}
 			else
-				passwordBean.setBackNews("å¯†ç æ›´æ–°å¤±è´¥");
+				passwordBean.setBackNews("ÃÜÂë¸üĞÂÊ§°Ü");
 		}
 		catch (SQLException exp) {
-			passwordBean.setBackNews("å¯†ç æ›´æ–°å¤±è´¥"+exp);
+			passwordBean.setBackNews("ÃÜÂë¸üĞÂÊ§°Ü"+exp);
 		}
 		RequestDispatcher dispatcher=request.getRequestDispatcher("showNewPassword.jsp");
 		dispatcher.forward(request, response);

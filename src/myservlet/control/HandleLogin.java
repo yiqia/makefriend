@@ -30,26 +30,26 @@ public class HandleLogin extends HttpServlet {
 		Connection con = null;
 		Statement sql = null;
 		
-		// Loginç±»ç”¨äºå°è£…ç™»å½•ä¿¡æ¯
+		// LoginÀàÓÃÓÚ·â×°µÇÂ¼ĞÅÏ¢
 		Login loginBean = null;
-		// ç”¨äºä¿å­˜ç™»å½•çŠ¶æ€
+		// ÓÃÓÚ±£´æµÇÂ¼×´Ì¬
 		String backNews = "";
 		
-		// è·å–ä¼šè¯å¯¹è±¡
+		// »ñÈ¡»á»°¶ÔÏó
 		HttpSession session = request.getSession(true);
 		try {
-			// ä»sessionä¼šè¯ä¸­è·å–keyä¸ºloginçš„å¯¹è±¡
+			// ´Ósession»á»°ÖĞ»ñÈ¡keyÎªloginµÄ¶ÔÏó
 			loginBean = (Login) session.getAttribute("login");
 			
-			// å¦‚æœæ²¡æœ‰ å°†loginBeanå­˜æ”¾åˆ°sessionä¼šè¯ä¸­ï¼Œkeyä¸ºlogin
+			// Èç¹ûÃ»ÓĞ ½«loginBean´æ·Åµ½session»á»°ÖĞ£¬keyÎªlogin
 			if (loginBean == null) {
 				loginBean = new Login();
 				session.setAttribute("login", loginBean);
 			}
 			
 		} catch (Exception ee) {
-			// å¦‚æœå‡ºç°å¼‚å¸¸ ç»§ç»­ç©¶ç«Ÿæ‰§è¡Œ loginBeanä¸ºnullçš„é€»è¾‘
-			// å¯èƒ½å‡ºç°çš„å¼‚å¸¸ä¸ºç©ºæŒ‡é’ˆå¼‚å¸¸
+			// Èç¹û³öÏÖÒì³£ ¼ÌĞø¾¿¾¹Ö´ĞĞ loginBeanÎªnullµÄÂß¼­
+			// ¿ÉÄÜ³öÏÖµÄÒì³£Îª¿ÕÖ¸ÕëÒì³£
 			loginBean = new Login();
 			session.setAttribute("login", loginBean);
 		}
@@ -57,22 +57,22 @@ public class HandleLogin extends HttpServlet {
 		String logname = request.getParameter("logname").trim();
 		String password = request.getParameter("password").trim();
 		
-		// åœ¨loginBeanä¸­å­˜æ”¾äº†ç™»å½•çŠ¶æ€ï¼Œé»˜è®¤å€¼ä¸ºfalse
+		// ÔÚloginBeanÖĞ´æ·ÅÁËµÇÂ¼×´Ì¬£¬Ä¬ÈÏÖµÎªfalse
 		boolean ok = loginBean.getSuccess();
 		
-		// å¯¹å­—ç¬¦ä»æ–°ç¼–ç 
+		// ¶Ô×Ö·û´ÓĞÂ±àÂë
 		logname = handleString(logname);
 		password = handleString(password);
 		
-		// åˆ¤æ–­ç™»å½•çŠ¶æ€
+		// ÅĞ¶ÏµÇÂ¼×´Ì¬
 		if (ok == true && logname.equals(loginBean.getLogname())) {
-			backNews = logname + "å·²ç»ç™»å½•äº†";
+			backNews = logname + "ÒÑ¾­µÇÂ¼ÁË";
 			loginBean.setBackNews(backNews);
 		} else {
 			String uri = "jdbc:mysql://192.168.88.77:3306/MakeFriend?"
 					+ "useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
 			
-			// éªŒè¯ç™»å½•ç”¨æˆ·åå’Œå¯†ç 
+			// ÑéÖ¤µÇÂ¼ÓÃ»§ÃûºÍÃÜÂë
 			boolean boo = (logname.length() > 0) && (password.length() > 0);
 			
 			try {
@@ -82,15 +82,15 @@ public class HandleLogin extends HttpServlet {
 				sql = con.createStatement();
 				if (boo) {
 					ResultSet rs = sql.executeQuery(condition);
-					// åˆ¤æ–­æ˜¯å¦å­˜åœ¨ä¸‹ä¸€æ¡
+					// ÅĞ¶ÏÊÇ·ñ´æÔÚÏÂÒ»Ìõ
 					boolean m = rs.next();
 					if (m == true) {
-						backNews = "ç™»å½•æˆåŠŸ";
+						backNews = "µÇÂ¼³É¹¦";
 						loginBean.setBackNews(backNews);
 						loginBean.setSuccess(true);
 						loginBean.setLogname(logname);
 					} else {
-						backNews = "æ‚¨è¾“å…¥çš„ç”¨æˆ·åä¸å­˜åœ¨ï¼Œæˆ–å¯†ç ä¸åŒ¹é…";
+						backNews = "ÄúÊäÈëµÄÓÃ»§Ãû²»´æÔÚ£¬»òÃÜÂë²»Æ¥Åä";
 						loginBean.setBackNews(backNews);
 						loginBean.setSuccess(false);
 						loginBean.setLogname(logname);
@@ -98,7 +98,7 @@ public class HandleLogin extends HttpServlet {
 					}
 					rs.close();
 				} else {
-					backNews = "æ‚¨è¾“å…¥çš„ç”¨æˆ·åä¸å­˜åœ¨ï¼Œæˆ–å¯†ç ä¸åŒ¹é…";
+					backNews = "ÄúÊäÈëµÄÓÃ»§Ãû²»´æÔÚ£¬»òÃÜÂë²»Æ¥Åä";
 					loginBean.setBackNews(backNews);
 					loginBean.setSuccess(false);
 					loginBean.setLogname(logname);
@@ -107,7 +107,7 @@ public class HandleLogin extends HttpServlet {
 				sql.close();
 				con.close();
 			} catch (SQLException exp) {
-				backNews = "ç™»å½•å¼‚å¸¸:" + exp;
+				backNews = "µÇÂ¼Òì³£:" + exp;
 				loginBean.setBackNews(backNews);
 				loginBean.setSuccess(false);
 			}

@@ -5,8 +5,6 @@ import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import org.junit.Test;
-
 import mybean.data.*;
 
 public class HandleRegister extends HttpServlet {

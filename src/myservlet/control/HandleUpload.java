@@ -23,69 +23,69 @@ public class HandleUpload extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession(true);
 		
-		// ä»sessionåŸŸä¸­è·å–loginå¯¹è±¡ï¼ˆåœ¨ç™»å½•æ—¶å­˜æ”¾è¿‡ï¼‰
+		// ´ÓsessionÓòÖĞ»ñÈ¡login¶ÔÏó£¨ÔÚµÇÂ¼Ê±´æ·Å¹ı£©
 		Login login=(Login)session.getAttribute("login");
 		
-		// ç”¨äºæ ‡è®°æ˜¯å¦ä¸ºç™»å½•çŠ¶æ€
+		// ÓÃÓÚ±ê¼ÇÊÇ·ñÎªµÇÂ¼×´Ì¬
 		boolean ok = true;
 		
-		// åˆ¤æ–­loginæ˜¯å¦ä¸ºç©º  ç”¨äºåˆ¤å®šç”¨æˆ·æ­¤æ—¶æ˜¯å¦ä¸ºç™»å½•çŠ¶æ€
+		// ÅĞ¶ÏloginÊÇ·ñÎª¿Õ  ÓÃÓÚÅĞ¶¨ÓÃ»§´ËÊ±ÊÇ·ñÎªµÇÂ¼×´Ì¬
 		if(login==null) {
 			ok=false;
 			response.sendRedirect("login.jsp");
 		}
 		
-		// ç™»å½•çŠ¶æ€
+		// µÇÂ¼×´Ì¬
 		if(ok==true) {
 			String logname = login.getLogname();
-			// è°ƒç”¨ä¸Šä¼ æ–‡ä»¶æ–¹æ³•
+			// µ÷ÓÃÉÏ´«ÎÄ¼ş·½·¨
 			uploadFileMethod(request,response,logname);
 		}
 	}
 
-	//æ­¤æ–¹æ³•ç”¨äºæ–‡ä»¶ä¸Šä¼ 
+	//´Ë·½·¨ÓÃÓÚÎÄ¼şÉÏ´«
 	public void uploadFileMethod(HttpServletRequest request, HttpServletResponse response, String logname) throws ServletException, IOException {
 		
-		// UploadFile ä¸Šä¼ æ–‡ä»¶çš„JavaBean
+		// UploadFile ÉÏ´«ÎÄ¼şµÄJavaBean
 		UploadFile upFile=new UploadFile();
 		String backNews="";
 		upFile.setBackNews(backNews);
-		upFile.setSavedFileName("æš‚æ—¶æ— åå­—");
+		upFile.setSavedFileName("ÔİÊ±ÎŞÃû×Ö");
 		
 		try {
 			HttpSession session=request.getSession(true);
 			
-			// å°†UploadFileä¿å­˜åˆ°sessionä¸­
+			// ½«UploadFile±£´æµ½sessionÖĞ
 			session.setAttribute("upFile", upFile);
 			
-			// è·å–JSessionID æ¯æ¬¡ä¼šè¯éƒ½ä¼šå­˜åœ¨ä¸€ä¸ª
+			// »ñÈ¡JSessionID Ã¿´Î»á»°¶¼»á´æÔÚÒ»¸ö
 			String tempFileName=(String)session.getId();
 			
-			// åˆ›å»ºä¸€ä¸ª ä»¥ã€€JSESSIONIDã€€ä¸ºåï¼Œæ— åç¼€çš„æ–‡ä»¶ä½œä¸ºä¸´æ—¶å­˜å‚¨
+			// ´´½¨Ò»¸ö ÒÔ¡¡JSESSIONID¡¡ÎªÃû£¬ÎŞºó×ºµÄÎÄ¼ş×÷ÎªÁÙÊ±´æ´¢
 			File f1=new File(tempFileName);
 			
-			// åˆ›å»ºæ–‡ä»¶å†™å…¥æµ
+			// ´´½¨ÎÄ¼şĞ´ÈëÁ÷
 			FileOutputStream o=new FileOutputStream(f1);
 			
-			// è·å–åˆ°è¯·æ±‚ä¸­çš„å­—èŠ‚æµ
+			// »ñÈ¡µ½ÇëÇóÖĞµÄ×Ö½ÚÁ÷
 			InputStream in = request.getInputStream();
 			
-			// ç¼“å†²åŒº
+			// »º³åÇø
 			byte b[]=new byte[10000];
 			int n;
-			// è¯»å‡ºè¯·æ±‚ä¸­çš„å­—èŠ‚æµæ•°æ®ï¼Œé€šè¿‡å†™å…¥æµå°†æ–‡ä»¶å†™å…¥åˆ°ã€€f1ã€€ä¸­
+			// ¶Á³öÇëÇóÖĞµÄ×Ö½ÚÁ÷Êı¾İ£¬Í¨¹ıĞ´ÈëÁ÷½«ÎÄ¼şĞ´Èëµ½¡¡f1¡¡ÖĞ
 			while((n=in.read(b))!=-1)
 				o.write(b,0,n);
 			o.close();
 			in.close();
 			
-			// éšæœºè®¿é—®æ–‡ä»¶ç±» å¯ä»¥åœ¨æ–‡ä»¶çš„ä»»æ„ä½ç½®å¼€å§‹è¯»å†™æ“ä½œï¼Œå¯¹äºæ“ä½œéæ–‡æœ¬ç±»æ–‡ä»¶æ•ˆç‡å¾ˆé«˜
+			// Ëæ»ú·ÃÎÊÎÄ¼şÀà ¿ÉÒÔÔÚÎÄ¼şµÄÈÎÒâÎ»ÖÃ¿ªÊ¼¶ÁĞ´²Ù×÷£¬¶ÔÓÚ²Ù×÷·ÇÎÄ±¾ÀàÎÄ¼şĞ§ÂÊºÜ¸ß
 			RandomAccessFile randomRead=new RandomAccessFile(f1, "r");
 			
-			// ä»¥ç”¨æˆ·åä½œä¸ºæ–‡ä»¶åå­—
+			// ÒÔÓÃ»§Ãû×÷ÎªÎÄ¼şÃû×Ö
 			String savedFileName=logname+".jpg";
 			
-			// è®©æŒ‡é’ˆæŒ‡å‘æ–‡ä»¶å¤´
+			// ÈÃÖ¸ÕëÖ¸ÏòÎÄ¼şÍ·
 			randomRead.seek(0);
 			
 			long forthEndPosition=0;
@@ -98,7 +98,7 @@ public class HandleUpload extends HttpServlet{
 				}
 			}
 			
-			// è·å–å½“å‰é¡¹ç›®éƒ¨ç½²çš„ç£ç›˜è·¯å¾„
+			// »ñÈ¡µ±Ç°ÏîÄ¿²¿ÊğµÄ´ÅÅÌÂ·¾¶
 			String path = request.getServletContext().getRealPath("/");
 			
 //			parentDir=parentDir.substring(0, parentDir.lastIndexOf("bin")-1);
@@ -139,7 +139,7 @@ public class HandleUpload extends HttpServlet{
 			if(rs.next()) {
 				int mm=sql.executeUpdate("UPDATE member SET pic='"+savedFileName+"' where logname='"+logname+"'");
 				if(mm!=0) {
-					backNews="æˆåŠŸä¸Šä¼ ";
+					backNews="³É¹¦ÉÏ´«";
 					upFile.setSavedFileName(savedFileName);
 					upFile.setBackNews(backNews+":"+path+"image");
 				}
