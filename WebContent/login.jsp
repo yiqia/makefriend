@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<head><%@ include file="head.txt" %></head>
+<head>
+<link href="style/reset.css" rel="stylesheet" />
+<link href="style/main.css" rel="stylesheet" />
+<link href="style/yiqi.css" rel="stylesheet" />	
+<%@ include file="head.txt" %></head>
 <html>
 <body bgcolor=pink>
 	<font size=2>
