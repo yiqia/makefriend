@@ -112,7 +112,7 @@ public class HandleLogin extends HttpServlet {
 				loginBean.setSuccess(false);
 			}
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("showLoginMess.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("ch11/showLoginMess.jsp");
 		dispatcher.forward(request, response);
 	}
 
