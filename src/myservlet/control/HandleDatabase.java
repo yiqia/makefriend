@@ -51,9 +51,9 @@ public class HandleDatabase extends HttpServlet {
 		PreparedStatement ps = null;
 		ResultSet resultSet = null;
 		List<MemberInform> list = new ArrayList<MemberInform>();
-		String uri = "jdbc:mysql://192.168.88.77:3306/MakeFriend?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
+		String uri = "jdbc:mysql://47.100.179.136:3306/MakeFriend?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
 		try {
-			con = DriverManager.getConnection(uri, "root", "1234");
+			con = DriverManager.getConnection(uri, "MakeFriend", "123456");
 			String sql1 = "SELECT * FROM member LIMIT ?,?";
 			String sql2 = "SELECT count(*) FROM member";
 			

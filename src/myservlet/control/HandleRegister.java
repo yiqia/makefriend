@@ -77,7 +77,7 @@ public class HandleRegister extends HttpServlet {
 			String insertRecord="('"+logname+"','"+password+"','"+phone+"','"+email+"','"+message+"','"+pic+"')";
 			String insertCondition="INSERT INTO member VALUES "+insertRecord;
 			
-			String uri="jdbc:mysql://192.168.88.77:3306/MakeFriend?user=root&password=1234&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
+			String uri="jdbc:mysql://47.100.179.136:3306/MakeFriend?user=MakeFriend&password=123456&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
 			// 获取jdbc连接
 			con=DriverManager.getConnection(uri);
 			// 创建执行SQL语句的Statement对象

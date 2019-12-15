@@ -69,14 +69,14 @@ public class HandleLogin extends HttpServlet {
 			backNews = logname + "已经登录了";
 			loginBean.setBackNews(backNews);
 		} else {
-			String uri = "jdbc:mysql://192.168.88.77:3306/MakeFriend?"
+			String uri = "jdbc:mysql://47.100.179.136:3306/MakeFriend?"
 					+ "useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
 			
 			// 验证登录用户名和密码
 			boolean boo = (logname.length() > 0) && (password.length() > 0);
 			
 			try {
-				con = DriverManager.getConnection(uri, "root", "1234");
+				con = DriverManager.getConnection(uri, "MakeFriend", "123456");
 				String condition = "select * from member where logname='" + logname + "' and password='" + password
 						+ "'";
 				sql = con.createStatement();
@@ -112,7 +112,7 @@ public class HandleLogin extends HttpServlet {
 				loginBean.setSuccess(false);
 			}
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ch11/showLoginMess.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("showLoginMess.jsp");
 		dispatcher.forward(request, response);
 	}
 

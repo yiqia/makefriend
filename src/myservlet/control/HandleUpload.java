@@ -132,8 +132,8 @@ public class HandleUpload extends HttpServlet{
 			}
 			randomSave.close();
 			randomRead.close();
-			String uri="jdbc:mysql://192.168.88.77:3306/MakeFriend?"+"useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
-			Connection con=DriverManager.getConnection(uri,"root","1234");
+			String uri="jdbc:mysql://47.100.179.136:3306/MakeFriend?"+"useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
+			Connection con=DriverManager.getConnection(uri,"MakeFriend","123456");
 			Statement sql=con.createStatement();
 			ResultSet rs=sql.executeQuery("SELECT * FROM member where logname='"+logname+"'");
 			if(rs.next()) {

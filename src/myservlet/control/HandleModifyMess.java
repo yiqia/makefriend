@@ -62,7 +62,7 @@ public class HandleModifyMess extends HttpServlet {
 //    	message=handleString(message);
     	String backNews="";
     	try {
-    		String uri="jdbc:mysql://192.168.88.77:3306/MakeFriend?"+"user=root&password=1234&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
+    		String uri="jdbc:mysql://47.100.179.136:3306/MakeFriend?"+"user=MakeFriend&password=123456&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
     		con=DriverManager.getConnection(uri);
     		String updateCondition="UPDATE member SET phone='"+phone+"',email='"+email+"',message='"+message+"' WHERE logname='"+logname+"'";
     		sql=con.createStatement();
