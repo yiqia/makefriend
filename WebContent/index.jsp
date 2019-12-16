@@ -1,4 +1,5 @@
-﻿<%@ include file="head.txt" %></head>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ include file="head.txt" %></head>
 <!doctype html>
 <html>
 <script type="text/JavaScript" src="js/yiqi.js"></script>
@@ -23,7 +24,7 @@
 						<li onClick="iFrame('choiceLookType.jsp')"><img src="./icon/ip1.png"><a href="#">浏览会员</a></li>
 						<li onClick="iFrame('inputModifyMess.jsp')"><img src="./icon/book.png"><a href="#">修改注册信息</a></li>
 						<li  onClick="iFrame('modifyPassword.jsp')"><img src="./icon/touxiang.png"><a href="#">修改密码</a></li>
-						<li  onClick="iFrame('helpExitLogin')"><img src="./icon/touxiang.png"><a href="#">退出登录</a></li>
+						<li  onClick="iFrame('hello.jsp')"><img src="./icon/touxiang.png"><a href="#">退出登录</a></li>
 					</ul>
 				</div>
 			</div>

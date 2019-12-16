@@ -3,7 +3,9 @@
 <head><%@ include file="head.txt" %></head>
 <jsp:useBean id="inform" class="mybean.data.MemberInform" scope="request"/>
 <html>
-<body bgcolor=pink>
+<body >
+	<div style="border: 1px solid #CCCCCC;;box-shadow: 3px 6px 12px #CCCCCC;padding: 20px;
+		    border-radius: 8px;">
 <center>
 	<table border=2>
 		<tr>
@@ -22,5 +24,6 @@
 		</tr>
 	</table>
 </center>
+</div>
 </body>
 </html>

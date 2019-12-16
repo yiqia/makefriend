@@ -2,13 +2,22 @@
 <%@ page import="mybean.data.ModifyMessage" %>
 <jsp:useBean id="modify" class="mybean.data.ModifyMessage" scope="request"/>
 <head><%@ include file="head.txt" %></head>
+<style type="text/css">
+	.table td{
+		border: 1px solid #ccc;
+		    border-radius: 4px;
+		    text-align: center;
+	}
+</style>
 <html>
-<body bgcolor=yellow>
+<body >
+	<div style="border: 1px solid #CCCCCC;;box-shadow: 3px 6px 12px #CCCCCC;padding: 20px;
+		    border-radius: 8px;">
 <font size=3>
 <center>
-	<jsp:getProperty property="backNews" name="modify"/>,
-	您修改的信息如下：
-	<table border=1>
+	<p style="padding: 10px 0;"><jsp:getProperty property="backNews" name="modify"/>,
+	您修改的信息如下：</p>
+	<table class="table">
 		<tr><td>新电话</td>
 			<td>新email</td>
 			<td>新简历和交友标准</td>
@@ -22,5 +31,6 @@
 	</table>
 </center>
 </font>
+</div>
 </body>
 </html>

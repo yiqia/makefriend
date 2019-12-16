@@ -4,21 +4,20 @@
 <link href="style/main.css" rel="stylesheet" />
 <link href="style/yiqi.css" rel="stylesheet" />	
 <%@ include file="head.txt" %></head>
+<link rel="stylesheet" type="text/css" href="style/login.css"/>
 <html>
-<body bgcolor=pink>
-	<font size=2>
-		<center>
-			<br><br>
-			<table border=2>
-				<tr><th>请您登录</th></tr>
-				<form action="helpLogin" method="post">
-					<tr><td>登录名称：<input type="text" name="logname"></td></tr>
-					<tr><td>输入密码：<input type="text" name="password"></td></tr>
-			</table>	
-					<br>
-					<input type="submit" name="g" value="提交">
+<body>
+			<div class="box">
+				<table  style="width: 100%;">
+					<tr><th style="padding: 10px 0;">登录账号：</th></tr>
+					<form action="helpLogin" method="post">
+						<tr style="height: 60px;"><td><input type="text" name="logname" placeholder="账号" class="logname"></td></tr>
+						<tr style="height: 60px;"><td><input type="text" name="password" placeholder="密码" class="logname"></td></tr>
+				</table>	
+						<br>
+						<input class="submit" type="submit" name="g" value="提交">
 				</form>
-		</center>
-	</font>
+				
+			</div>
 </body>
 </html>

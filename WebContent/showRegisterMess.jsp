@@ -3,22 +3,24 @@
 <jsp:useBean id="register" class="mybean.data.Register" scope="request" />
 <head><%@ include file="head.txt" %></head>
 <html>
-<body bgcolor=cyan>
+<body >
+	<div style="border: 1px solid #CCCCCC;;box-shadow: 3px 6px 12px #CCCCCC;padding: 20px;
+		    border-radius: 8px;">
 	<center>
 		<font size=4>
 			<!-- 此显示提示信息 -->
-			<br><jsp:getProperty property="backNews" name="register"/>
+			<p style="padding-bottom: 10px;"><br><jsp:getProperty property="backNews" name="register"/></p>
 		</font>
 		
 		<!-- 如果注册成功此处会显示注册信息 -->
-		<table>
-			<tr><td>注册的会员名称：</td>
+		<table >
+			<tr style="height: 50px;"><td>注册的会员名称：</td>
 				<td><jsp:getProperty property="logname" name="register"/></td>
 			</tr>
-			<tr><td>注册的电子邮件：</td>
+			<tr style="height: 50px;"><td>注册的电子邮件：</td>
 				<td><jsp:getProperty property="email" name="register"/></td>
 			</tr>
-			<tr><td>注册的联系电话：</td>
+			<tr  style="height: 50px;"><td>注册的联系电话：</td>
 				<td><jsp:getProperty property="phone" name="register"/></td>
 			</tr>
 		</table>
@@ -28,6 +30,7 @@
 			</textarea>
 			</td></tr>
 		</table>
-	</center>
+		</center>
+	</div>
 </body>
 </html>

@@ -3,12 +3,16 @@
 <jsp:useBean id="login" class="mybean.data.Login" scope="session"/>
 <head><%@ include file="head.txt" %></head>
 <html>
-<body bgcolor=pink>
+<body >
+	<div style="border: 1px solid #CCCCCC;;box-shadow: 3px 6px 12px #CCCCCC;padding: 20px;
+		    border-radius: 8px;">
 	<center>
-		<font size=4 color=blue>
+		<font size=4 style="color: black;
+    padding-bottom: 20px;
+    display: inline-block;width: 170px;">
 			<br><jsp:getProperty property="backNews" name="login"/>
 		</font>
-		<font size=2 color=cyan>
+		<font size=2 color=black>
 		<%	
 			// 登录成功 显示会员名
 			if(login.getSuccess()==true){
@@ -24,5 +28,6 @@
 		%>
 		</font>
 	</center>
+	</div>
 </body>
 </html>
