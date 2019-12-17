@@ -30,7 +30,7 @@ public class HandleDatabase extends HttpServlet {
 		}
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		HttpSession session = request.getSession(true);
 		Login login = (Login) session.getAttribute("login");
 		boolean ok = true;

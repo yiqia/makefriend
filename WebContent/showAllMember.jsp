@@ -34,7 +34,7 @@
 				<td>${emp.phone}</td>
 				<td>${emp.message}</td>
 				<td><image style="max-height:49px;" src='https://qq.q05.cc/cc.q05.mkfriend/image/${emp.pic}'/></td>
-			</tr> 
+			</tr>
 		</c:forEach>
 	</table>
 	<br>每页最多显示<jsp:getProperty property="pageSize" name="show"/>
