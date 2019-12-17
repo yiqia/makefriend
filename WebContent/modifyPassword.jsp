@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<head><%@ include file="head.txt" %></head>
+<head><%@ include file="head.jsp" %></head>
 <style type="text/css">
 	.submit{
 		background-color: coral;

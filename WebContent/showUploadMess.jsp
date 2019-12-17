@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="mybean.data.UploadFile" %>
 <jsp:useBean id="upFile" class="mybean.data.UploadFile" scope="session"/>
-<head><%@ include file="head.txt" %></head>
+<head><%@ include file="head.jsp" %></head>
 <html>
 <body >
 <div style="border: 1px solid #CCCCCC;;box-shadow: 3px 6px 12px #CCCCCC;padding: 20px;

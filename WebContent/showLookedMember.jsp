@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="mybean.data.MemberInform" %>
-<head><%@ include file="head.txt" %></head>
+<head><%@ include file="head.jsp" %></head>
 <jsp:useBean id="inform" class="mybean.data.MemberInform" scope="request"/>
 <html>
 <body >

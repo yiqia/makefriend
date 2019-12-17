@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="mybean.data.ModifyMessage" %>
 <jsp:useBean id="modify" class="mybean.data.ModifyMessage" scope="request"/>
-<head><%@ include file="head.txt" %></head>
+<head><%@ include file="head.jsp" %></head>
 <style type="text/css">
 	.table td{
 		border: 1px solid #ccc;

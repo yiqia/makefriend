@@ -3,7 +3,7 @@
 <link href="style/reset.css" rel="stylesheet" />
 <link href="style/main.css" rel="stylesheet" />
 <link href="style/yiqi.css" rel="stylesheet" />	
-<%@ include file="head.txt" %></head>
+<%@ include file="head.jsp" %></head>
 <link rel="stylesheet" type="text/css" href="style/login.css"/>
 <html>
 <body>

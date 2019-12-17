@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ include file="head.txt" %></head>
+<%@ include file="head.jsp" %></head>
 <!doctype html>
 <html>
 <script type="text/JavaScript" src="js/yiqi.js"></script>

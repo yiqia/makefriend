@@ -5,7 +5,7 @@
 <%@ page import="mybean.data.ShowByPage" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:useBean id="show" class="mybean.data.ShowByPage" scope="session"/>
-<head><%@ include file="head.txt" %></head>
+<head><%@ include file="head.jsp" %></head>
 <link rel="stylesheet" type="text/css" href="style/login.css"/>
 <html>
 <body>

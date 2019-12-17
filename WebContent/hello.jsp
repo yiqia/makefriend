@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <html>
-<head><%@ include file="head.txt" %></head>
+<head><%@ include file="head.jsp" %></head>
 
 <body background="image/holle.jpg" style="background-size: 100% 100%;">
 	<center>
