@@ -26,7 +26,6 @@ public class HandleLogin extends HttpServlet {
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		Connection con = null;
 		Statement sql = null;
 		
